@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2:600|Montserrat&display=swap');
+
+body, html {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, button, a, .lead {
+    font-family: 'Baloo Paaji 2', cursive;
+}
+
+textarea, #keywords {
+    width: 100%;
+}
+
+.highlight {
+    background: var(--primary);
+    /* font-weight: bolder; */
+}
+
+main {
+    min-height: 80vh;
+}
+
+.form-control {
+    height: auto !important;
+}

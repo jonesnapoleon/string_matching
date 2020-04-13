@@ -1,0 +1,31 @@
+{% extends 'form.html' %}
+
+{% block output %}
+
+   <section id='result'>
+      {% if show %}
+      
+         <article class="mt-2">
+            {% if result['raw_output'] %}
+               <label class='lead d-block'>Changes: </label>
+               {% for val in result['raw_output'] %}
+               <b>{{ val }}</b>
+               {% endfor %}
+            {% else %}
+               <h6><b>No Change</b></h6>
+            {% endif %}
+         </article>
+
+            <article class="form-group mt-3">
+               <label class="lead">Generated output: </label>
+               {% autoescape false %}
+               <code class="form-control">{{ result['inner_HTML'] }}</code>
+               {% endautoescape %}
+            </article>
+         
+
+      {% endif %}
+
+   </section>
+
+{% endblock %}

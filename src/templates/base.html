@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Matching</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body class="container">
+    <h1 class="mb-5 mt-4 text-center">String matching with Python</h1>
+    <main>
+        {% block form %}{% endblock %}
+    </main>
+    <footer class="mb-4 text-center">
+        <p>String Matching with Python</p>
+        <p class"lead">Powered by <a class="text-bold" href='https://jonesnapoleon.web.app'>Jones Napoleon</a></p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+</body>
+</html>
