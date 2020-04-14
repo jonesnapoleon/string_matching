@@ -6,17 +6,20 @@ body, html {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, button, a, .lead {
+h1, h2, h3, h4, h5, h6, button, .lead {
     font-family: 'Baloo Paaji 2', cursive;
 }
 
-textarea, #keywords {
+textarea, #keywords, #input-web {
     width: 100%;
 }
 
 .highlight {
     background: var(--primary);
-    /* font-weight: bolder; */
+    color: var(--dark) !important;
+}
+.highlight a {
+    color: var(--dark) !important;
 }
 
 main {

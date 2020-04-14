@@ -1,6 +1,3 @@
-import requests
-from bs4 import BeautifulSoup
-
 def boyer_moore(data):
     pattern = data['keywords']
     text = data['text']

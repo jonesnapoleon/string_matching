@@ -21,8 +21,23 @@ def commondata():
     temp = {}
     temp['algorithm'] = 'regex'
     temp['keywords'] = ''
-    temp['input-method'] = 'text'    
+    temp['input-method'] = 'text'
     temp['text'] = ''
 
     return temp
 
+
+def commonwebdata():
+    temp = {}
+    temp['keywords'] = ''
+    temp['url'] = ''
+
+    return temp
+
+
+def callbackwebdata(data):
+    temp = {}
+    temp['keywords'] = data['keywords'][0]
+    temp['url'] = data['input-web'][0]
+
+    return temp

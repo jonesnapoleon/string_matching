@@ -2,8 +2,8 @@
 
 {% block output %}
 
-   <section id='result'>
-      {% if show %}
+   {% if show %}
+      <section id='result'>
       
          <article class="mt-2">
             {% if result['raw_output'] %}
@@ -12,7 +12,7 @@
                <code>{{ val }}</code>
                {% endfor %}
             {% else %}
-               <h6><b>No Change</b></h6>
+               <label class='lead d-block'>No change</label>               
             {% endif %}
          </article>
 
@@ -23,7 +23,7 @@
                {% endautoescape %}
             </article>
       
-         {% endif %}
-   </section>
+      </section>
+   {% endif %}
 
 {% endblock %}
