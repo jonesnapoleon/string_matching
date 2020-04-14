@@ -26,3 +26,12 @@ main {
 .form-control {
     height: auto !important;
 }
+
+input[type='file'], a[data-toggle='tooltip']{
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+a[data-toggle='tooltip']:hover {
+    text-decoration: none;
+}

@@ -14,16 +14,15 @@ def boyer_moore(data):
         for index in range(len(text) - 1, -1, -1):
             string = text[index] + string
             if string[0: len(to_be_checked)] == to_be_checked:
-                string = string.replace(to_be_checked, "<span class='highlight>" + to_be_checked + "</span>", 1)
+                string = string.replace(to_be_checked, "<span class='highlight'>" + to_be_checked + "</span>", 1)
                 if len(solution) > 0:
                     to_be_checked = solution.pop()
-                else:
-                    break
+
     else:
         string = text
 
     response = {
-        "inner-HTML": string,
+        "inner_HTML": string.strip(),
         "raw_output": saved_solution,
     }
 

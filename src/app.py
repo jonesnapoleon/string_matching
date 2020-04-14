@@ -26,7 +26,7 @@ def index():
             result = knuth_morris_pratt(data)
         else:
             result = boyer_moore(data)
-        
+
         return render_template('index.html', result=result, previous=previous, show=True)
 
 

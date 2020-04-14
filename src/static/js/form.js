@@ -1,7 +1,3 @@
-const body = document.getElementsByTagName('body')[0]
-body.addEventListener('load', () => console.log("FEWFW"))
-
-
 const formInputMethod = document.getElementsByName("input-method")
 const fileMethod = document.getElementById('file-chosen')
 const textMethod = document.getElementById('text-chosen')
@@ -17,7 +13,7 @@ const handleFormInput = e => {
             textarea.style.display = 'none'
         }
     }
-    else {
+    if(e.target.value === 'file') {
         fileMethod.style.display = 'block'
         textMethod.style.display = 'none'
         fileMethod.querySelector('input').required = true
@@ -47,3 +43,7 @@ const process = (text) => {
         document.getElementById('before-parsed').appendChild(textarea)
     }
 }
+
+$(document).ready(() => {
+    $('[data-toggle="tooltip"]').tooltip()
+})
