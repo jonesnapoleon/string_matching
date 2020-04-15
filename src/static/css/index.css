@@ -38,3 +38,6 @@ input[type='file'], a[data-toggle='tooltip']{
 a[data-toggle='tooltip']:hover {
     text-decoration: none;
 }
+#cta-web{
+    cursor: pointer;
+}

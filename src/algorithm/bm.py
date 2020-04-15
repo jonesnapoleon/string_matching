@@ -1,29 +1,79 @@
-import re
+def get_prefix(pattern, is_case_sensitive):
+    if not is_case_sensitive:
+        pattern = pattern.lower()
+    length = len(pattern)
+    prefix = {}
+
+    for i in range(len(pattern)):
+        char = str(pattern[i])
+        prefix[char] = (length - i - 1) if i != (length - 1) else length
+    prefix['*'] = length
+
+    return prefix
+
 
 def boyer_moore(data):
     pattern = data['keywords']
     text = data['text']
-
-    solution = re.findall(pattern, text)
+    is_case_sensitive = data['case-sensitive']
     
-    saved_solution = [sol for sol in solution]
+    response = []
+    border = get_prefix(pattern, is_case_sensitive)
+    length = len(pattern) - 1
+    last = length
+    i = 0
+    print(border)
+    if not is_case_sensitive:
+        while last < len(text):
+            while i < length and text[last].lower() == pattern[length - i].lower():
+                last -= 1
+                i += 1
+            if i == length and text[last].lower() == pattern[length - i].lower():
+                response.append(last)
+                last += length
+            i = 0
+
+            last += border[text[last].lower()] if text[last].lower() in border else border['*']
+        
+    else:
+        while last < len(text):
+            while i < length and text[last] == pattern[length - i]:
+                last -= 1
+                i += 1
+            if i == length and text[last] == pattern[length - i]:
+                response.append(last)
+                last += length
+            i = 0
+
+            last += border[text[last]] if text[last] in border else border['*']
+
+    return render_result(response, text, pattern)
+
+
+def render_result(response, text, pattern):
+    length = len(pattern)
+    keys = len(response)
     string = ""
 
-    if len(solution) > 0:
-        to_be_checked = solution.pop()
-        for index in range(len(text) - 1, -1, -1):
-            string = text[index] + string
-            if string[0: len(to_be_checked)] == to_be_checked:
-                string = string.replace(to_be_checked, "<span class='highlight'>" + to_be_checked + "</span>", 1)
-                if len(solution) > 0:
-                    to_be_checked = solution.pop()
+    if len(response) > 0:
+        j = response.pop(0)
+        i = 0
+        while i < len(text):
+            if i == j:
+                string += "<span class='highlight'>" + text[i : i + length] + "</span>"
+                i += length - 1
+                if len(response) > 0:
+                    j = response.pop(0)
+            else:
+                string += text[i]
+            i += 1
 
     else:
         string = text
-
-    response = {
+    
+    response_data = {
         "inner_HTML": string.strip(),
-        "raw_output": saved_solution,
+        "raw_output": [pattern for i in range(keys)],
     }
-
-    return response
+    
+    return response_data
