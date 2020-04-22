@@ -58,6 +58,15 @@
                         </a>
                     </label>
                 </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name='tubes-mode' id="tubes-mode" value='{{ previous["tubes-mode"]}}' {% if previous["tubes-mode"] == 'true' %} checked {% endif %}>
+                    <label class="form-check-label" for="case-sensitive">
+                        Tubes mode
+                        <a href="#" data-toggle="tooltip" data-html="true" title="For general purposes, don't check this checkbox<br>Read more at my official READme to understand the usage of tubes mode">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </label>
+                </div>
                 <button type='submit' class="mt-1 btn btn-primary btn-md">Find</button>
             </section>
 

@@ -7,12 +7,14 @@
       
          <article class="mt-2">
             {% if result['raw_output'] %}
-               <label class='lead d-block'>Changes: </label>
-               {% for val in result['raw_output'] %}
-               <code>{{ val }}</code>
+               <label class='lead'>Changes: </label>
+               {% for data in result['raw_output'] %}
+                  {% autoescape false %}
+                     <div>{{ data }}</div>
+                  {% endautoescape %}
                {% endfor %}
             {% else %}
-               <label class='lead d-block'>No change</label>               
+               <label class='lead d-block'>No change</label>
             {% endif %}
          </article>
 

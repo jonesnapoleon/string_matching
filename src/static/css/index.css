@@ -14,12 +14,18 @@ textarea, #keywords, #input-web {
     width: 100%;
 }
 
-.highlight {
+mark {
     background: var(--primary);
     color: var(--dark) !important;
 }
-.highlight a {
+mark a {
     color: var(--dark) !important;
+}
+mark.numbers {
+    background: var(--danger) !important;
+}
+mark.moments {
+    background: var(--warning) !important;
 }
 
 main {

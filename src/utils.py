@@ -1,5 +1,4 @@
 def preprocess(data):
-    print(data)
     temp = {}
     temp['algorithm'] = data['algorithm'][0]
     temp['keywords'] = data['keywords'][0]
@@ -9,12 +8,16 @@ def preprocess(data):
             temp['case-sensitive'] = True
     except:
         temp['case-sensitive'] = False
+    try:
+        if data['tubes-mode']:
+            temp['tubes-mode'] = True
+    except:
+        temp['tubes-mode'] = False
 
     return temp
 
 
 def callbackdata(data):
-    print(data)
     temp = {}
     temp['algorithm'] = data['algorithm'][0]
     temp['keywords'] = data['keywords'][0]
@@ -25,6 +28,11 @@ def callbackdata(data):
             temp['case-sensitive'] = 'true'
     except:
         temp['case-sensitive'] = 'false'
+    try:
+        if data['tubes-mode']:
+            temp['tubes-mode'] = True
+    except:
+        temp['tubes-mode'] = False
 
     return temp
 
@@ -36,6 +44,7 @@ def commondata():
     temp['input-method'] = 'text'
     temp['text'] = ''
     temp['case-sensitive'] = 'true'
+    temp['tubes-mode'] = 'true'
 
     return temp
 

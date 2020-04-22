@@ -16,7 +16,7 @@ def regular_expression(data):
                 while text[index : index + len(to_be_checked)] != to_be_checked:
                     string += text[index]
                     index += 1
-                string += "<span class='highlight'>" + to_be_checked + "</span>"
+                string += "<mark>" + to_be_checked + "</mark>"
                 index += len(to_be_checked)
                 if len(solution) > 0:
                     to_be_checked = solution.pop(0)
